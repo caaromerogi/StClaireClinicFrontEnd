@@ -37,14 +37,15 @@ function createMedicalSpecialty(medicalSpecialty) {
     buttonPatients.id = `patient-${medicalSpecialty.id}`;
     buttonPatients.classList.add(`button-patients-${medicalSpecialty.id}`);
     buttonPatients.innerText = "Patients";
-    buttonPatients.onclick = function () {
-        var _a;
-        const id = Number((_a = buttonPatients.getAttribute('id')) === null || _a === void 0 ? void 0 : _a.split('-')[1]);
-        displayPatientsInSpecialty(id);
-        //ejecuta una función donde se despliega la ventana modal 
-    };
+    buttonPatients.onclick = showPatients;
     header.append(specialty, physicianInCharge);
     buttons.append(buttonDelete, buttonUpdate, buttonPatients);
     specialtyContainer.append(header, buttons);
     specialtiesContainer.append(specialtyContainer);
+    function showPatients() {
+        var _a;
+        const id = Number((_a = buttonPatients.getAttribute('id')) === null || _a === void 0 ? void 0 : _a.split('-')[1]);
+        console.log(id);
+        displayPatientsInSpecialty(id);
+    }
 }

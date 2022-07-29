@@ -10,7 +10,6 @@ export function getSpecialties(){
 
 function recreateMedicalSpecialties(medicalSpecialties:medicalSpecialtyI[]){
     medicalSpecialties.forEach(medicalSpecialty => createMedicalSpecialty(medicalSpecialty));
-
 }
 
 function createMedicalSpecialty(medicalSpecialty:medicalSpecialtyI){
@@ -50,17 +49,18 @@ function createMedicalSpecialty(medicalSpecialty:medicalSpecialtyI){
     buttonPatients.id = `patient-${medicalSpecialty.id}`;
     buttonPatients.classList.add(`button-patients-${medicalSpecialty.id}`);
     buttonPatients.innerText = "Patients"
-    buttonPatients.onclick=function(){
-        
-        const id:number = Number(buttonPatients.getAttribute('id')?.split('-')[1]);
-        displayPatientsInSpecialty(id);
-        
-        //ejecuta una función donde se despliega la ventana modal 
-    }
+    buttonPatients.onclick= showPatients;
     
     header.append(specialty,physicianInCharge);
     buttons.append(buttonDelete, buttonUpdate, buttonPatients);
     specialtyContainer.append(header, buttons);
     specialtiesContainer.append(specialtyContainer);
 
+    function showPatients(){
+        const id:number = Number(buttonPatients.getAttribute('id')?.split('-')[1]);
+        console.log(id);
+        displayPatientsInSpecialty(id)
+    }
+
 }
+

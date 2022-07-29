@@ -10,6 +10,15 @@
     font-weight: bold;
 }
 
+h2{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h3{
+    font-size: 15px;
+}
+
 
 .container{
     margin: auto;
@@ -152,8 +161,6 @@
 
 
 
-
-
 .modal-patient{
     display: none;
 }
@@ -175,12 +182,96 @@
 }
 
 .modal-container-back-patient{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     height: 600px;
     width: 1000px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.patient-body-container{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    width: 900px;
+    height: 400px;
+    overflow-y: scroll;
+    
+}
+
+.patient-card{
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.patient-card h2{
+    font-size: 15px;
+    background-color: white;
+}
+.patient-card div h3{
+    font-size: 10px;
+    background-color: white;
+}
+
+
+
+.modal-new-patient{
+
+}
+
+.modal-new-patient.display{
+    display: block;
+}
+
+.modal-container-new-patient{
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal-container-back-new-patient{
+    height: 500px;
+    width: 500px;
     border-radius: 5px;
 }
 
-.modal-container-new-specialty .close-button{
+
+.modal-container-new-patient .form{
+    font-weight: lighter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    
+}
+
+.modal-container-new-patient .form h2{
+    margin-bottom: 40px;
+}
+
+.modal-container-new-patient .form input{
+    font-weight:500;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 250px;
+    border-width: 1px;
+    outline: none;
+}
+
+.modal-container-new-patient .close-button{
     margin-top: 15px;
     margin-left: 430px;
     margin-bottom: 15px;

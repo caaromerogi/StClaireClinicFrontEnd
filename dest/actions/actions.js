@@ -33,3 +33,11 @@ export function postMedicalSpecialty(medicalSpecialty) {
         return response;
     });
 }
+export function deletePatient(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch(`http://localhost:8080/api/delete/patient/${id}`, {
+            method: 'DELETE'
+        });
+        return response;
+    });
+}

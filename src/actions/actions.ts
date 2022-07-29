@@ -28,3 +28,13 @@ export async function postMedicalSpecialty(medicalSpecialty:medicalSpecialtyI){
 
     return response;
 }
+
+export async function deletePatient(id:number){
+    const response:Response = await fetch(`http://localhost:8080/api/delete/patient/${id}`,
+    {
+        method: 'DELETE'
+      });
+    
+      return response;
+
+}
