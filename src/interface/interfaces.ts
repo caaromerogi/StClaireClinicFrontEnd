@@ -3,7 +3,7 @@ export interface medicalSpecialtyI{
     id:number|null,
     name:string,
     physicianInCharge:string
-    patients:patientI[]|null
+    patients:patientI[]
 }
 
 export interface patientI{

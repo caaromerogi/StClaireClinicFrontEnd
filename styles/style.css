@@ -92,16 +92,16 @@
 .specialty-container .buttons{
     background-color: white;
 }
-.modal{
-    display: none;
 
+.modal-new-specialty{
+    display: none;
 }
 
-.modal.display{
+.modal-new-specialty.display{
     display: block;
 }
 
-.modal-container{
+.modal-container-new-specialty{
     background-color: rgba(0,0,0,0.3);
     display: flex;
     align-items: center;
@@ -113,14 +113,14 @@
     width: 100vw;
 }
 
-.modal-container-back{
+.modal-container-back-new-specialty{
     height: 380px;
     width: 500px;
     border-radius: 5px;
 }
 
 
-.modal-container .form{
+.modal-container-new-specialty .form{
     font-weight: lighter;
     display: flex;
     justify-content: center;
@@ -130,11 +130,11 @@
     
 }
 
-.modal-container .form h2{
+.modal-container-new-specialty .form h2{
     margin-bottom: 40px;
 }
 
-.modal-container .form input{
+.modal-container-new-specialty .form input{
     font-weight:500;
     border-top: none;
     border-left: none;
@@ -144,12 +144,47 @@
     outline: none;
 }
 
-.modal-container .close-button{
+.modal-container-new-specialty .close-button{
     margin-top: 15px;
     margin-left: 430px;
     margin-bottom: 15px;
 }
 
+
+
+
+
+.modal-patient{
+    display: none;
+}
+
+.modal-patient.display{
+    display: block;
+}
+
+.modal-container-patient{
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal-container-back-patient{
+    height: 600px;
+    width: 1000px;
+    border-radius: 5px;
+}
+
+.modal-container-new-specialty .close-button{
+    margin-top: 15px;
+    margin-left: 430px;
+    margin-bottom: 15px;
+}
 
 
 

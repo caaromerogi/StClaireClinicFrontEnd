@@ -1,4 +1,5 @@
 import { getAllMedicalSpecialties } from "../actions/actions.js";
+import { displayPatientsInSpecialty } from "../patient/displayPatient.js";
 export function getSpecialties() {
     getAllMedicalSpecialties().then(medicalSpecialties => {
         recreateMedicalSpecialties(medicalSpecialties);
@@ -33,8 +34,15 @@ function createMedicalSpecialty(medicalSpecialty) {
     buttonUpdate.innerText = "Update";
     const buttonPatients = document.createElement('button');
     buttonPatients.className = `button`;
-    buttonPatients.classList.add(`button-delete-${medicalSpecialty.id}`);
+    buttonPatients.id = `patient-${medicalSpecialty.id}`;
+    buttonPatients.classList.add(`button-patients-${medicalSpecialty.id}`);
     buttonPatients.innerText = "Patients";
+    buttonPatients.onclick = function () {
+        var _a;
+        const id = Number((_a = buttonPatients.getAttribute('id')) === null || _a === void 0 ? void 0 : _a.split('-')[1]);
+        displayPatientsInSpecialty(id);
+        //ejecuta una función donde se despliega la ventana modal 
+    };
     header.append(specialty, physicianInCharge);
     buttons.append(buttonDelete, buttonUpdate, buttonPatients);
     specialtyContainer.append(header, buttons);

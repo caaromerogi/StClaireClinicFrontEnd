@@ -14,6 +14,13 @@ export function getAllMedicalSpecialties() {
         return data;
     });
 }
+export function getMedicalSpecialtyById(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch(`http://localhost:8080/api/${id}`);
+        const data = yield response.json();
+        return data;
+    });
+}
 export function postMedicalSpecialty(medicalSpecialty) {
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield fetch('http://localhost:8080/api/create/medical-specialty', {

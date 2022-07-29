@@ -1,5 +1,5 @@
 import { medicalSpecialtyI } from "../interface/interfaces.js";
-import { postMedicalSpecialty, getAllMedicalSpecialties } from "../actions/actions.js";
+import { postMedicalSpecialty } from "../actions/actions.js";
 
 export function addMedicalSpecialty(){
     const addSpecialtyButton = document.querySelector('#create-medical-specialty') as HTMLButtonElement;
@@ -7,7 +7,7 @@ export function addMedicalSpecialty(){
 }
 
 export function openForm(){
-    const setModalWindow = document.querySelector('.modal') as HTMLDivElement;
+    const setModalWindow = document.querySelector('.modal-new-specialty') as HTMLDivElement;
     setModalWindow.classList.add(`display`);
 
     const submitButton = document.querySelector('#submit-new-specialty') as HTMLButtonElement;
@@ -19,7 +19,7 @@ export function openForm(){
 }
 
 function closeForm(){
-    const setModalWindow = document.querySelector('.modal') as HTMLDivElement;
+    const setModalWindow = document.querySelector('.modal-new-specialty') as HTMLDivElement;
     setModalWindow.classList.remove(`display`);
 
 }
@@ -30,20 +30,47 @@ function submitNewSpecialty(){
 
     const physician = document.querySelector('#new-physician') as HTMLInputElement;
     
-    const newMedicalSpecialty:medicalSpecialtyI ={
-        id:null,
-        name: name.value,
-        physicianInCharge:physician.value, 
-        patients:[]
+    if(validation(name.value, physician.value)){
+        const newMedicalSpecialty:medicalSpecialtyI ={
+            id:null,
+            name: name.value,
+            physicianInCharge:physician.value, 
+            patients:[]
+        }
+        postMedicalSpecialty(newMedicalSpecialty)
+        .then(response => console.log(response));
+        location.reload();
+    
+        name.value = "";
+        physician.value = "";
+    
+        closeForm();
+        console.log(newMedicalSpecialty)
     }
-    postMedicalSpecialty(newMedicalSpecialty)
-    .then(response => console.log(response));
-    getAllMedicalSpecialties;
 
-    name.value = "";
-    physician.value = "";
+    
 
-    closeForm();
-    console.log(newMedicalSpecialty)
+}
 
+function validation(name:string, physician:string){
+    let state:boolean=true;
+
+    if(name.length<5){
+        alert('Name must have more than 5 char');
+        state = false;
+    }
+    if(name.length>100){
+        alert('Name must have less than 100 char');
+        state = false;
+    }
+    if(physician.length<10){
+        alert('Physician name must have more than 10 char');
+        state=false;
+    }
+    if(physician.length>45){
+        alert('Physician name must have less than 45 char');
+        state=false;
+    }
+
+    return state;
 }
