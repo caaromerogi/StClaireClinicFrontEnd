@@ -7,3 +7,16 @@ export async function getAllMedicalSpecialties(){
 
     return data;
 }
+
+export async function postMedicalSpecialty(medicalSpecialty:medicalSpecialtyI){
+    const response:Response = await fetch('http://localhost:8080/api/create/medical-specialty',
+    {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify(medicalSpecialty)
+      }) 
+
+    return response;
+}

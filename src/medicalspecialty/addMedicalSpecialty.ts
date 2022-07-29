@@ -1,4 +1,5 @@
 import { medicalSpecialtyI } from "../interface/interfaces.js";
+import { postMedicalSpecialty, getAllMedicalSpecialties } from "../actions/actions.js";
 
 export function addMedicalSpecialty(){
     const addSpecialtyButton = document.querySelector('#create-medical-specialty') as HTMLButtonElement;
@@ -33,9 +34,16 @@ function submitNewSpecialty(){
         id:null,
         name: name.value,
         physicianInCharge:physician.value, 
-        patients:null
+        patients:[]
     }
+    postMedicalSpecialty(newMedicalSpecialty)
+    .then(response => console.log(response));
+    getAllMedicalSpecialties;
 
+    name.value = "";
+    physician.value = "";
+
+    closeForm();
     console.log(newMedicalSpecialty)
 
 }
