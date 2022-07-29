@@ -1,5 +1,9 @@
-fetch('http://localhost:8080/api/')
-.then(response => response.json())
-.then(data => {
-    console.log(data)
-})
+import { getSpecialties } from "./medicalspecialty/setMedicalSpecialties.js";
+import{ addMedicalSpecialty } from "./medicalspecialty/addMedicalSpecialty.js"
+
+getSpecialties();
+addMedicalSpecialty();
+
+
+
+

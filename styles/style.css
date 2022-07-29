@@ -29,6 +29,7 @@
     display: inline-block;
     outline: none;
     cursor: pointer;
+    margin: 2px;
     font-weight: 500;
     border: 1px solid transparent;
     border-radius: 2px;
@@ -91,6 +92,14 @@
 .specialty-container .buttons{
     background-color: white;
 }
+.modal{
+    display: none;
+
+}
+
+.modal.display{
+    display: block;
+}
 
 .modal-container{
     background-color: rgba(0,0,0,0.3);
@@ -104,10 +113,46 @@
     width: 100vw;
 }
 
-.modal-container form{
-    justify-content: center;
-
+.modal-container-back{
+    height: 380px;
+    width: 500px;
+    border-radius: 5px;
 }
+
+
+.modal-container .form{
+    font-weight: lighter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    
+}
+
+.modal-container .form h2{
+    margin-bottom: 40px;
+}
+
+.modal-container .form input{
+    font-weight:500;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 250px;
+    border-width: 1px;
+    outline: none;
+}
+
+.modal-container .close-button{
+    margin-top: 15px;
+    margin-left: 430px;
+    margin-bottom: 15px;
+}
+
+
+
+
 
 
 

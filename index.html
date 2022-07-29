@@ -11,147 +11,31 @@
     <div class="container">
         <div class="header">
             <img src="resources/img/SaintClaireHospitalLogo.png" alt="StClaireHospitalLogo" width="250px">
-            <button class = 'button' id="createMedicalSpecialty">Create Medical Specialty</button>
+            <button class = 'button' id="create-medical-specialty">Create Medical Specialty</button>
         </div>
     </div>
 
     <div class="container">
         <div class="specialties-container">
-            <div class="specialty-container">
-                <div class="title">
-                    <h2>Medical Specialty</h2>
-                    <h3>Dr. Emmy Oyola</h3>
-                </div>
-                <div class="buttons">
-                    <button class="button">Delete</button>
-                    <button class="button">Update</button>
-                    <button class="button">Patients</button>
-                </div>
-                
-            </div>
-            <div class="specialty-container">
-                <div class="title">
-                    <h2>Medical Specialty</h2>
-                    <h3>Dr. Emmy Oyola</h3>
-                </div>
-                <div class="buttons">
-                    <button class="button">Delete</button>
-                    <button class="button">Update</button>
-                    <button class="button">Patients</button>
-                </div>
-            </div>
-            <div class="specialty-container">
-                <div class="title">
-                    <h2>Medical Specialty</h2>
-                    <h3>Dr. Emmy Oyola</h3>
-                </div>
-                <div class="buttons">
-                    <button class="button">Delete</button>
-                    <button class="button">Update</button>
-                    <button class="button">Patients</button>
-                </div>
-            </div>
-            <div class="specialty-container">
-                <div class="title">
-                    <h2>Medical Specialty</h2>
-                    <h3>Dr. Emmy Oyola</h3>
-                </div>
-                <div class="buttons">
-                    <button class="button">Delete</button>
-                    <button class="button">Update</button>
-                    <button class="button">Patients</button>
-                </div>
-            </div>
-            <div class="specialty-container">
-                <div class="title">
-                    <h2>Medical Specialty</h2>
-                    <h3>Dr. Emmy Oyola</h3>
-                </div>
-                <div class="buttons">
-                    <button class="button">Delete</button>
-                    <button class="button">Update</button>
-                    <button class="button">Patients</button>
-                </div>
-            </div>
-            <div class="specialty-container">
-                <div class="title">
-                    <h2>Medical Specialty</h2>
-                    <h3>Dr. Emmy Oyola</h3>
-                </div>
-                <div class="buttons">
-                    <button class="button">Delete</button>
-                    <button class="button">Update</button>
-                    <button class="button">Patients</button>
-                </div>
-            </div>
-            <div class="specialty-container">
-                <div class="title">
-                    <h2>Medical Specialty</h2>
-                    <h3>Dr. Emmy Oyola</h3>
-                </div>
-                <div class="buttons">
-                    <button class="button">Delete</button>
-                    <button class="button">Update</button>
-                    <button class="button">Patients</button>
-                </div>
-            </div>
-            <div class="specialty-container">
-                <div class="title">
-                    <h2>Medical Specialty</h2>
-                    <h3>Dr. Emmy Oyola</h3>
-                </div>
-                <div class="buttons">
-                    <button class="button">Delete</button>
-                    <button class="button">Update</button>
-                    <button class="button">Patients</button>
-                </div>
-            </div>
-            <div class="specialty-container">
-                <div class="title">
-                    <h2>Medical Specialty</h2>
-                    <h3>Dr. Emmy Oyola</h3>
-                </div>
-                <div class="buttons">
-                    <button class="button">Delete</button>
-                    <button class="button">Update</button>
-                    <button class="button">Patients</button>
-                </div>
-            </div>
-            <div class="specialty-container">
-                <div class="title">
-                    <h2>Medical Specialty</h2>
-                    <h3>Dr. Emmy Oyola</h3>
-                </div>
-                <div class="buttons">
-                    <button class="button">Delete</button>
-                    <button class="button">Update</button>
-                    <button class="button">Patients</button>
-                </div>
-            </div>
-            <div class="specialty-container">
-                <div class="title">
-                    <h2>Medical Specialty</h2>
-                    <h3>Dr. Emmy Oyola</h3>
-                </div>
-                <div class="buttons">
-                    <button class="button">Delete</button>
-                    <button class="button">Update</button>
-                    <button class="button">Patients</button>
-                </div>
-            </div>
+            
         </div>
     </div>
 
     <div class="modal">
         <div class="modal-container">
-            <form action="" method="post">
-                    Name: <input type="text" name="name" id="name"><br>
-                    Physician in charge: <input type="text" name="physician" id="physician"><br>
-                <button type="submit">Submit</button>
-            </form>
+            <div class="modal-container-back">
+                <button class="button close-button">X</button>
+                <div class = "form">  
+                    <h2>Create new medical specialty</h2>
+                    Name: <input type="text" name="name" id="new-specialty-name"><br>
+                    Physician in charge: <input type="text" name="physician" id="new-physician"><br>
+                    <button class = "button" id = "submit-new-specialty">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
-    
-    <script src="dest/index.js"></script>
+
+
+    <script type = "module" src="dest/index.js"></script>
 </body>
 </html>
