@@ -1,4 +1,4 @@
-import { dateI, medicalSpecialtyI, patientI } from "../interface/interfaces.js";
+import { dateI, medicalSpecialtyI, medicalSpecialtyUpdateI, patientI } from "../interface/interfaces.js";
 
 export async function getAllMedicalSpecialties(){
     const response:Response = await fetch('http://localhost:8080/api/');
@@ -58,4 +58,16 @@ export async function updatePatientDates(id:number, date:dateI){
         },
         body: JSON.stringify(date)
     })
+    return response;
+}
+
+export async function deleteMedicalSpecialty(id:number){
+    const response:Response = await fetch(`http://localhost:8080/api/delete/${id}`,{
+        method: 'DELETE'
+    })
+    return response
+}
+
+export async function updateMedicalSpecialty(id:number, medicalSpecialty:medicalSpecialtyUpdateI){
+
 }

@@ -1,3 +1,7 @@
+export interface medicalSpecialtyUpdateI{
+    name:string,
+    physicianInCharge: string
+}
 
 export interface medicalSpecialtyI{
     id:number|null,

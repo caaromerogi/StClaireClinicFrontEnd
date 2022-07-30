@@ -62,5 +62,18 @@ export function updatePatientDates(id, date) {
             },
             body: JSON.stringify(date)
         });
+        return response;
+    });
+}
+export function deleteMedicalSpecialty(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch(`http://localhost:8080/api/delete/${id}`, {
+            method: 'DELETE'
+        });
+        return response;
+    });
+}
+export function updateMedicalSpecialty(id, medicalSpecialty) {
+    return __awaiter(this, void 0, void 0, function* () {
     });
 }

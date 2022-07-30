@@ -1,6 +1,8 @@
 import { getAllMedicalSpecialties } from "../actions/actions.js";
 import { displayPatientsInSpecialty } from "../patient/displayPatient.js";
 import { createNewPatient } from "../patient/createNewPatient.js";
+import { deleteSpecialty } from "./deleteSpecialty.js";
+import { updateSpecialty } from "./updateSpecialty.js";
 export function getSpecialties() {
     getAllMedicalSpecialties().then(medicalSpecialties => {
         recreateMedicalSpecialties(medicalSpecialties);
@@ -29,12 +31,12 @@ function createMedicalSpecialty(medicalSpecialty) {
     buttonDelete.className = `button`;
     buttonDelete.classList.add(`button-delete-${medicalSpecialty.id}`);
     buttonDelete.innerText = "Delete";
-    buttonDelete.onclick = deleteSpecialty;
+    buttonDelete.onclick = deleteMedicalSpecialty;
     const buttonUpdate = document.createElement('button');
     buttonUpdate.className = `button`;
     buttonUpdate.classList.add(`button-update-${medicalSpecialty.id}`);
     buttonUpdate.innerText = "Update";
-    //buttonUpdate.onclick= updateSpecialty;
+    buttonUpdate.onclick = updateMedicalSpecialty;
     const buttonPatients = document.createElement('button');
     buttonPatients.className = `button`;
     buttonPatients.id = `patient-${medicalSpecialty.id}`;
@@ -52,18 +54,21 @@ function createMedicalSpecialty(medicalSpecialty) {
     function showPatients() {
         var _a;
         const id = Number((_a = buttonPatients.getAttribute('id')) === null || _a === void 0 ? void 0 : _a.split('-')[1]);
-        console.log(id);
         displayPatientsInSpecialty(id);
     }
     function createPatient() {
         var _a;
         const id = Number((_a = buttonPatients.getAttribute('id')) === null || _a === void 0 ? void 0 : _a.split('-')[1]);
-        console.log(id);
         createNewPatient(id);
     }
-    function deleteSpecialty() {
+    function deleteMedicalSpecialty() {
         var _a;
         const id = Number((_a = buttonDelete.getAttribute('class')) === null || _a === void 0 ? void 0 : _a.split('-')[2]);
-        console.log(id);
+        deleteSpecialty(id);
+    }
+    function updateMedicalSpecialty() {
+        var _a;
+        const id = Number((_a = buttonUpdate.getAttribute('class')) === null || _a === void 0 ? void 0 : _a.split('-')[2]);
+        updateSpecialty(id);
     }
 }

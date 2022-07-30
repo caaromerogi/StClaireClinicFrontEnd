@@ -2,6 +2,8 @@ import { getAllMedicalSpecialties } from "../actions/actions.js"
 import { medicalSpecialtyI, patientI, dateI } from "../interface/interfaces.js";
 import { displayPatientsInSpecialty } from "../patient/displayPatient.js";
 import { createNewPatient } from "../patient/createNewPatient.js";
+import { deleteSpecialty } from "./deleteSpecialty.js";
+import { updateSpecialty } from "./updateSpecialty.js";
 
 export function getSpecialties(){
     getAllMedicalSpecialties().then(medicalSpecialties =>{
@@ -39,13 +41,13 @@ function createMedicalSpecialty(medicalSpecialty:medicalSpecialtyI){
     buttonDelete.className=`button`;
     buttonDelete.classList.add(`button-delete-${medicalSpecialty.id}`);
     buttonDelete.innerText = "Delete"
-    buttonDelete.onclick= deleteSpecialty;
+    buttonDelete.onclick= deleteMedicalSpecialty;
 
     const buttonUpdate:HTMLButtonElement = document.createElement('button');
     buttonUpdate.className=`button`;
     buttonUpdate.classList.add(`button-update-${medicalSpecialty.id}`);
     buttonUpdate.innerText = "Update"
-    //buttonUpdate.onclick= updateSpecialty;
+    buttonUpdate.onclick= updateMedicalSpecialty;
 
     const buttonPatients:HTMLButtonElement = document.createElement('button');
     buttonPatients.className=`button`;
@@ -67,19 +69,22 @@ function createMedicalSpecialty(medicalSpecialty:medicalSpecialtyI){
 
     function showPatients(){
         const id:number = Number(buttonPatients.getAttribute('id')?.split('-')[1]);
-        console.log(id);
         displayPatientsInSpecialty(id)
     }
 
     function createPatient(){
         const id:number = Number(buttonPatients.getAttribute('id')?.split('-')[1]);
-        console.log(id);
         createNewPatient(id)
     }
 
-    function deleteSpecialty(){
+    function deleteMedicalSpecialty(){
         const id:number = Number(buttonDelete.getAttribute('class')?.split('-')[2]);
-        console.log(id);
+        deleteSpecialty(id);
+    }
+
+    function updateMedicalSpecialty(){
+        const id:number = Number(buttonUpdate.getAttribute('class')?.split('-')[2]);
+        updateSpecialty(id);
     }
 
 }
