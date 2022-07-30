@@ -19,6 +19,7 @@ function submitNewDate(id) {
             date: inputDate.value
         };
         updatePatientDates(id, newDate).then(response => console.log(response));
+        alert('The new date was added succesfully');
         closeForm();
     }
     closeForm();

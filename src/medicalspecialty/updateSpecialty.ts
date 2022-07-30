@@ -42,10 +42,18 @@ function submitUpdatedSpecialty(id:number){
             name: name.value,
             physicianInCharge:physician.value
         }
+
         updateMedicalSpecialty(id, newMedicalSpecialty)
-        .then(response => console.log(response));
-    
+        .then(response => {
+            if(response.status ===200){
+                alert('Succesfully updated');
+                closeForm();
+            }
+        });
+        alert('There was a problem with the update, reload and try again');
+        
     }
+    
 
 }
 

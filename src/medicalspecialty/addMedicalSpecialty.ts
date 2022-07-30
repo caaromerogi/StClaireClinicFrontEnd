@@ -48,8 +48,6 @@ function submitNewSpecialty(){
         console.log(newMedicalSpecialty)
     }
 
-    
-
 }
 
 function validation(name:string, physician:string){

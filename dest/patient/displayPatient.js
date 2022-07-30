@@ -65,20 +65,16 @@ function generatePatientInterface(patients) {
         function deletePatient() {
             var _a;
             const id = Number((_a = deleteButton.getAttribute('id')) === null || _a === void 0 ? void 0 : _a.split('-')[1]);
-            deletePatientInSpecialty(id).then(response => {
-                if (response.status === 200) {
-                    const patient = document.querySelector(`#patient-${id}`);
-                    patient.remove();
-                }
-            });
+            deletePatientInSpecialty(id);
         }
-        divPatient.append(headName, headDNI, headAge, headDates, divDate, deleteButton, addDateButton);
+        divPatient.append(headName, headDNI, headAge, headDates, divDate, headNumberOfAppointments, deleteButton, addDateButton);
         divBodyContainer.append(divPatient);
     });
     divModalContainerBackPatient.append(divHeaderContainer, divBodyContainer);
     divModalContainerPatient.append(divModalContainerBackPatient);
     divModalPatient.append(divModalContainerPatient);
     function closePatient() {
+        location.reload();
         divModalContainerPatient.remove();
         divModalPatient.classList.remove('display');
     }

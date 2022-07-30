@@ -1,5 +1,5 @@
 import { createPatient, getMedicalSpecialtyById } from "../actions/actions.js";
-import { patientI } from "../interface/interfaces.js";
+import { medicalSpecialtyI, patientI } from "../interface/interfaces.js";
 
 //Validate that patient doesn't exist already
 export function createNewPatient(id:number){
@@ -15,8 +15,6 @@ export function createNewPatient(id:number){
 }
 
 function closeForm(){
-    const divModelForm = document.querySelector('.modal-new-patient') as HTMLDivElement;
-    divModelForm.classList.remove('display');
     location.reload();
 }
 
@@ -26,24 +24,26 @@ function submitNewPatient(id:number){
     const inputAge = document.querySelector('#new-patient-age') as HTMLInputElement;
     const inputDate = document.querySelector('#new-patient-date') as HTMLInputElement;
 
-    if(validation(inputName.value, inputAge.value, inputDNI.value, inputDate.value, id)){
+    
+
+    if(validation(inputName.value, inputAge.value, inputDNI.value, inputDate.value)&&dniValid(id, inputDNI.value)){
         const newPatient:patientI ={
             id:null,
             name: inputName.value,
             dni: Number(inputDNI.value),
             age: String(inputAge.value),
             date: String(inputDate.value),
-            numberOfAppointments:1,
+            numberOfAppointments:0,
             dates: []
         }
         createPatient(id, newPatient).then(response => console.log(response));
-        closeForm();
+
         
     }
 }
 
-function validation(name:string, inputAge:string, inputDNI:string,inputDate:string, idSpecialty:number){
-    let state:boolean = true;
+function validation(name:string, inputAge:string, inputDNI:string,inputDate:string){
+    let state:boolean =true;
 
     if(isNaN(Number(inputAge))){
         alert('Age only admits number characters');
@@ -53,10 +53,12 @@ function validation(name:string, inputAge:string, inputDNI:string,inputDate:stri
     if(Number(inputAge)<1){
         alert('Age cannot be zero or less');
         state = false;
+
     }
 
     if(isNaN(Number(inputDNI))){
-        alert('DNI only admits number characters')
+        alert('DNI only admits number characters');
+        state = false;
     }
 
     if(name.length<10){
@@ -71,13 +73,16 @@ function validation(name:string, inputAge:string, inputDNI:string,inputDate:stri
         alert('Bad date field');
         state = false;
     }
+    return state;
+}
 
-    getMedicalSpecialtyById(idSpecialty).then(medicalSpecialty => {
+function dniValid(id:number,  inputDNI:string){
+    let state:boolean = true;
+    getMedicalSpecialtyById(id).then(medicalSpecialty => {
         medicalSpecialty.patients.forEach(patient =>{
-            if(patient.dni ===Number(inputDNI)){
-                alert('The patient dni already exists, ask for a new date in Patients section')
-                state=false;
-                closeForm();
+            console.log(patient.dni);
+            if(patient.dni === Number(inputDNI)){ 
+                alert('The dni already exists, please add a new date in Patients section')             
             }
         })
     })

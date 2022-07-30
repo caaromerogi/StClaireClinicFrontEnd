@@ -25,6 +25,7 @@ function submitNewDate(id:number){
             date:inputDate.value
         }
         updatePatientDates(id,newDate).then(response => console.log(response));
+        alert('The new date was added succesfully')
         closeForm(); 
     }
     closeForm();
