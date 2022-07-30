@@ -27,6 +27,7 @@ function submitNewPatient(id) {
             dates: []
         };
         createPatient(id, newPatient).then(response => console.log(response));
+        closeForm();
     }
 }
 function validation(name, inputAge, inputDNI, inputDate) {

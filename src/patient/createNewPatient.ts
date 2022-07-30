@@ -37,7 +37,7 @@ function submitNewPatient(id:number){
             dates: []
         }
         createPatient(id, newPatient).then(response => console.log(response));
-
+        closeForm();
         
     }
 }
