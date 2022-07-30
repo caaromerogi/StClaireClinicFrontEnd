@@ -1,6 +1,7 @@
 import { getMedicalSpecialtyById } from "../actions/actions.js";
 import { medicalSpecialtyI, patientI } from "../interface/interfaces.js";
 import { deletePatientInSpecialty } from "./deletePatient.js";
+import { updatePatient } from "./updatePatient.js";
 
 export function displayPatientsInSpecialty(id:number){
     getMedicalSpecialtyById(id).then(medical => generatePatientsModel(medical));
@@ -66,7 +67,8 @@ function generatePatientInterface(patients:patientI[]){
        addDateButton.onclick = addNewDate;
 
        function addNewDate(){
-        const id:number = Number(deleteButton.getAttribute('id')?.split('-')[2]);
+        const id:number = Number(addDateButton.getAttribute('id')?.split('-')[2]);
+        updatePatient(id);
        }
 
 
@@ -86,7 +88,7 @@ function generatePatientInterface(patients:patientI[]){
             })    
         }
 
-       divPatient.append(headName, headDNI, headAge, divDate, deleteButton);
+       divPatient.append(headName, headDNI, headAge, divDate, deleteButton, addDateButton);
        divBodyContainer.append(divPatient);
     })
     

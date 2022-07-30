@@ -39,11 +39,13 @@ function createMedicalSpecialty(medicalSpecialty:medicalSpecialtyI){
     buttonDelete.className=`button`;
     buttonDelete.classList.add(`button-delete-${medicalSpecialty.id}`);
     buttonDelete.innerText = "Delete"
+    buttonDelete.onclick= deleteSpecialty;
 
     const buttonUpdate:HTMLButtonElement = document.createElement('button');
     buttonUpdate.className=`button`;
     buttonUpdate.classList.add(`button-update-${medicalSpecialty.id}`);
     buttonUpdate.innerText = "Update"
+    //buttonUpdate.onclick= updateSpecialty;
 
     const buttonPatients:HTMLButtonElement = document.createElement('button');
     buttonPatients.className=`button`;
@@ -73,6 +75,11 @@ function createMedicalSpecialty(medicalSpecialty:medicalSpecialtyI){
         const id:number = Number(buttonPatients.getAttribute('id')?.split('-')[1]);
         console.log(id);
         createNewPatient(id)
+    }
+
+    function deleteSpecialty(){
+        const id:number = Number(buttonDelete.getAttribute('class')?.split('-')[2]);
+        console.log(id);
     }
 
 }

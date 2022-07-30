@@ -1,7 +1,6 @@
 import { createPatient, getMedicalSpecialtyById } from "../actions/actions.js";
 //Validate that patient doesn't exist already
 export function createNewPatient(id) {
-    console.log('id desde funcion' + id);
     const divModelForm = document.querySelector('.modal-new-patient');
     divModelForm.classList.add('display');
     const buttonClose = document.querySelector('#close-new-patient');

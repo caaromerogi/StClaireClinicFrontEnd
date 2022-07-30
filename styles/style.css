@@ -281,6 +281,67 @@ h3{
 
 
 
+.modal-new-date{
+    display: none;
+}
+
+.modal-new-date.display{
+    display: block;
+}
+
+.modal-container-new-date{
+    background-color: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal-container-back-new-date{
+    height: 340px;
+    width: 500px;
+    border-radius: 5px;
+}
+
+
+.modal-container-new-date .form{
+    font-weight: lighter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    
+}
+
+.modal-container-new-date .form h2{
+    margin-bottom: 40px;
+}
+
+.modal-container-new-date .form input{
+    font-weight:500;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 250px;
+    border-width: 1px;
+    outline: none;
+}
+
+.modal-container-new-date .close-button{
+    margin-top: 15px;
+    margin-left: 430px;
+    margin-bottom: 15px;
+}
+
+
+
+
+
 
 
 

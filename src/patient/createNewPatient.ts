@@ -3,7 +3,6 @@ import { patientI } from "../interface/interfaces.js";
 
 //Validate that patient doesn't exist already
 export function createNewPatient(id:number){
-    console.log('id desde funcion'+id);
     const divModelForm = document.querySelector('.modal-new-patient') as HTMLDivElement;
     divModelForm.classList.add('display');
 
@@ -39,7 +38,6 @@ function submitNewPatient(id:number){
         }
         createPatient(id, newPatient).then(response => console.log(response));
         closeForm();
-
         
     }
 }

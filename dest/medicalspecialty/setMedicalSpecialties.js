@@ -29,10 +29,12 @@ function createMedicalSpecialty(medicalSpecialty) {
     buttonDelete.className = `button`;
     buttonDelete.classList.add(`button-delete-${medicalSpecialty.id}`);
     buttonDelete.innerText = "Delete";
+    buttonDelete.onclick = deleteSpecialty;
     const buttonUpdate = document.createElement('button');
     buttonUpdate.className = `button`;
     buttonUpdate.classList.add(`button-update-${medicalSpecialty.id}`);
     buttonUpdate.innerText = "Update";
+    //buttonUpdate.onclick= updateSpecialty;
     const buttonPatients = document.createElement('button');
     buttonPatients.className = `button`;
     buttonPatients.id = `patient-${medicalSpecialty.id}`;
@@ -58,5 +60,10 @@ function createMedicalSpecialty(medicalSpecialty) {
         const id = Number((_a = buttonPatients.getAttribute('id')) === null || _a === void 0 ? void 0 : _a.split('-')[1]);
         console.log(id);
         createNewPatient(id);
+    }
+    function deleteSpecialty() {
+        var _a;
+        const id = Number((_a = buttonDelete.getAttribute('class')) === null || _a === void 0 ? void 0 : _a.split('-')[2]);
+        console.log(id);
     }
 }

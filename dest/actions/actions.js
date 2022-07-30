@@ -53,3 +53,14 @@ export function createPatient(id, patient) {
         return response;
     });
 }
+export function updatePatientDates(id, date) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch(`http://localhost:8080/api/update/patient/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(date)
+        });
+    });
+}

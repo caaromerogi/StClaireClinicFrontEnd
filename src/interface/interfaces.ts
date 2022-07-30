@@ -17,6 +17,5 @@ export interface patientI{
 }
 
 export interface dateI{
-    id:number|null,
     date:string
 }
