@@ -21,6 +21,7 @@ function generatePatientInterface(patients) {
     divBodyContainer.className = 'patient-body-container';
     const buttonClose = document.createElement('button');
     buttonClose.innerText = "X";
+    buttonClose.id = 'close-patients';
     buttonClose.className = 'button';
     buttonClose.classList.add('button-close-patients');
     buttonClose.onclick = closePatient;
@@ -30,6 +31,7 @@ function generatePatientInterface(patients) {
         divPatient.id = `patient-${patient.id}`;
         divPatient.className = 'patient-card';
         const divDate = document.createElement('div');
+        divDate.id = 'div-dates';
         const headName = document.createElement('h2');
         headName.innerText = "Name: " + patient.name;
         const headDNI = document.createElement('h2');
@@ -70,7 +72,7 @@ function generatePatientInterface(patients) {
                 }
             });
         }
-        divPatient.append(headName, headDNI, headAge, divDate, deleteButton, addDateButton);
+        divPatient.append(headName, headDNI, headAge, headDates, divDate, deleteButton, addDateButton);
         divBodyContainer.append(divPatient);
     });
     divModalContainerBackPatient.append(divHeaderContainer, divBodyContainer);
