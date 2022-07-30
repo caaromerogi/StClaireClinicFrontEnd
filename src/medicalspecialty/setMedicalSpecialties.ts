@@ -1,6 +1,7 @@
 import { getAllMedicalSpecialties } from "../actions/actions.js"
 import { medicalSpecialtyI, patientI, dateI } from "../interface/interfaces.js";
 import { displayPatientsInSpecialty } from "../patient/displayPatient.js";
+import { createNewPatient } from "../patient/createNewPatient.js";
 
 export function getSpecialties(){
     getAllMedicalSpecialties().then(medicalSpecialties =>{
@@ -50,9 +51,15 @@ function createMedicalSpecialty(medicalSpecialty:medicalSpecialtyI){
     buttonPatients.classList.add(`button-patients-${medicalSpecialty.id}`);
     buttonPatients.innerText = "Patients"
     buttonPatients.onclick= showPatients;
+
+
+    const buttonAddPatient:HTMLButtonElement = document.createElement('button');
+    buttonAddPatient.innerText = 'Create New Patient';
+    buttonAddPatient.className = 'button';
+    buttonAddPatient.onclick = createPatient;
     
     header.append(specialty,physicianInCharge);
-    buttons.append(buttonDelete, buttonUpdate, buttonPatients);
+    buttons.append(buttonDelete, buttonUpdate, buttonPatients, buttonAddPatient);
     specialtyContainer.append(header, buttons);
     specialtiesContainer.append(specialtyContainer);
 
@@ -60,6 +67,12 @@ function createMedicalSpecialty(medicalSpecialty:medicalSpecialtyI){
         const id:number = Number(buttonPatients.getAttribute('id')?.split('-')[1]);
         console.log(id);
         displayPatientsInSpecialty(id)
+    }
+
+    function createPatient(){
+        const id:number = Number(buttonPatients.getAttribute('id')?.split('-')[1]);
+        console.log(id);
+        createNewPatient(id)
     }
 
 }

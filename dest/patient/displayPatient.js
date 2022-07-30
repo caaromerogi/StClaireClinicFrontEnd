@@ -18,11 +18,6 @@ function generatePatientInterface(patients) {
     divHeaderContainer.className = 'patient-header-container';
     const divBodyContainer = document.createElement('div');
     divBodyContainer.className = 'patient-body-container';
-    const buttonAddPatient = document.createElement('button');
-    buttonAddPatient.innerText = 'Create New Patient';
-    buttonAddPatient.className = 'button';
-    buttonAddPatient.onclick = createNewPatient;
-    divHeaderContainer.append(buttonAddPatient);
     const buttonClose = document.createElement('button');
     buttonClose.innerText = "X";
     buttonClose.className = 'button';
@@ -75,7 +70,5 @@ function generatePatientInterface(patients) {
     function closePatient() {
         divModalContainerPatient.remove();
         divModalPatient.classList.remove('display');
-    }
-    function createNewPatient() {
     }
 }

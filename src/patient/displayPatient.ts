@@ -25,12 +25,6 @@ function generatePatientInterface(patients:patientI[]){
     const divBodyContainer:HTMLDivElement = document.createElement('div');
     divBodyContainer.className = 'patient-body-container'
     
-    const buttonAddPatient:HTMLButtonElement = document.createElement('button');
-    buttonAddPatient.innerText = 'Create New Patient';
-    buttonAddPatient.className = 'button';
-    buttonAddPatient.onclick = createNewPatient;
-    divHeaderContainer.append(buttonAddPatient);
-    
     const buttonClose:HTMLButtonElement = document.createElement('button');
     buttonClose.innerText = "X";
     buttonClose.className = 'button';
@@ -54,7 +48,7 @@ function generatePatientInterface(patients:patientI[]){
        headAge.innerText = "Age: "+ patient.age;
 
        const headNumberOfAppointments:HTMLHeadElement = document.createElement('h2');
-       headNumberOfAppointments.innerText = "Number of appointments: "+patient.numberOfAppointments;
+       headNumberOfAppointments.innerText = "Number of appointments: "+ patient.numberOfAppointments;
        
        const headDates:HTMLHeadElement = document.createElement('h2');
        headDates.innerText = "Dates:";
@@ -79,10 +73,8 @@ function generatePatientInterface(patients:patientI[]){
                     const patient = document.querySelector(`#patient-${id}`) as HTMLDivElement
                     console.log(patient);
                     patient.remove();
-
                 }
-            })
-            
+            })    
         }
 
        divPatient.append(headName, headDNI, headAge, divDate, deleteButton);
@@ -98,11 +90,6 @@ function generatePatientInterface(patients:patientI[]){
         divModalContainerPatient.remove();
         divModalPatient.classList.remove('display');
     }
-
-    function createNewPatient(){
-        
-    }
-
-    
+ 
 
 }

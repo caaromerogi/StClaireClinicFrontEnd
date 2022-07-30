@@ -41,3 +41,15 @@ export function deletePatient(id) {
         return response;
     });
 }
+export function createPatient(id, patient) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch(`http://localhost:8080/api/create/${id}/patient`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(patient)
+        });
+        return response;
+    });
+}

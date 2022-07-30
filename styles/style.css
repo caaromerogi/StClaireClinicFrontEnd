@@ -196,6 +196,7 @@ h3{
     display: flex;
     justify-content:space-around;
     align-items: center;
+    flex-wrap: wrap;
     width: 900px;
     height: 400px;
     overflow-y: scroll;
@@ -221,7 +222,7 @@ h3{
 
 
 .modal-new-patient{
-
+    display: none;
 }
 
 .modal-new-patient.display{
