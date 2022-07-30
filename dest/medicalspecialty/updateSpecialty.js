@@ -4,7 +4,7 @@ export function updateSpecialty(id) {
     setModalWindow.classList.add(`display`);
     const submitButton = document.querySelector('#submit-update-specialty');
     submitButton.addEventListener('click', function () { submitUpdatedSpecialty(id); });
-    const closeButton = document.querySelector('.close-button');
+    const closeButton = document.querySelector('#close-update-specialty');
     closeButton.addEventListener('click', closeForm);
     const nameDefault = document.querySelector(`.medical-specialty-title-${id}`);
     console.log(nameDefault.innerHTML);
@@ -12,7 +12,7 @@ export function updateSpecialty(id) {
     nameSpecialty.value = nameDefault.innerHTML;
     const physicianDefault = document.querySelector(`.physician-${id}`);
     const physician = document.querySelector('#update-physician');
-    physician.value = physicianDefault.innerHTML;
+    physician.value = physicianDefault.innerHTML.slice(4);
 }
 function closeForm() {
     location.reload();
@@ -29,11 +29,6 @@ function submitUpdatedSpecialty(id) {
         };
         updateMedicalSpecialty(id, newMedicalSpecialty)
             .then(response => console.log(response));
-        location.reload();
-        name.value = "";
-        physician.value = "";
-        closeForm();
-        console.log(newMedicalSpecialty);
     }
 }
 function validation(name, physician) {

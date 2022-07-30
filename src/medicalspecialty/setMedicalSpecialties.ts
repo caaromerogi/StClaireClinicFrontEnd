@@ -85,6 +85,7 @@ function createMedicalSpecialty(medicalSpecialty:medicalSpecialtyI){
     function updateMedicalSpecialty(){
         const id:number = Number(buttonUpdate.getAttribute('class')?.split('-')[2]);
         updateSpecialty(id);
+        
     }
 
 }

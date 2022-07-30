@@ -8,7 +8,7 @@ export function updateSpecialty(id:number){
     const submitButton = document.querySelector('#submit-update-specialty') as HTMLButtonElement;
     submitButton.addEventListener('click', function(){submitUpdatedSpecialty(id)});
 
-    const closeButton = document.querySelector('.close-button') as HTMLButtonElement;
+    const closeButton = document.querySelector('#close-update-specialty') as HTMLButtonElement;
     closeButton.addEventListener('click', closeForm);
 
     const nameDefault = document.querySelector(`.medical-specialty-title-${id}`) as HTMLHeadElement;
@@ -22,7 +22,7 @@ export function updateSpecialty(id:number){
 
     const physician = document.querySelector('#update-physician') as HTMLInputElement;
 
-    physician.value = physicianDefault.innerHTML;
+    physician.value = physicianDefault.innerHTML.slice(4);
 }
 
 function closeForm(){
@@ -44,18 +44,8 @@ function submitUpdatedSpecialty(id:number){
         }
         updateMedicalSpecialty(id, newMedicalSpecialty)
         .then(response => console.log(response));
-        location.reload();
     
-        name.value = "";
-        physician.value = "";
-    
-        closeForm();
-        console.log(newMedicalSpecialty)
     }
-
-    
-
-
 
 }
 

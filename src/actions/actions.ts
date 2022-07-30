@@ -69,5 +69,13 @@ export async function deleteMedicalSpecialty(id:number){
 }
 
 export async function updateMedicalSpecialty(id:number, medicalSpecialty:medicalSpecialtyUpdateI){
+    const response:Response = await fetch(`http://localhost:8080/api/update/${id}`,{
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify(medicalSpecialty)
+    })
 
+    return response;
 }

@@ -75,5 +75,13 @@ export function deleteMedicalSpecialty(id) {
 }
 export function updateMedicalSpecialty(id, medicalSpecialty) {
     return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch(`http://localhost:8080/api/update/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(medicalSpecialty)
+        });
+        return response;
     });
 }
