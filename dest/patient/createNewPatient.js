@@ -19,7 +19,7 @@ function submitNewPatient(id) {
     const inputDNI = document.querySelector('#new-patient-dni');
     const inputAge = document.querySelector('#new-patient-age');
     const inputDate = document.querySelector('#new-patient-date');
-    if (validation(inputName.value, inputAge.value, inputDNI.value, id)) {
+    if (validation(inputName.value, inputAge.value, inputDNI.value, inputDate.value, id)) {
         const newPatient = {
             id: null,
             name: inputName.value,
@@ -33,7 +33,7 @@ function submitNewPatient(id) {
         closeForm();
     }
 }
-function validation(name, inputAge, inputDNI, idSpecialty) {
+function validation(name, inputAge, inputDNI, inputDate, idSpecialty) {
     let state = true;
     if (isNaN(Number(inputAge))) {
         alert('Age only admits number characters');
@@ -52,6 +52,11 @@ function validation(name, inputAge, inputDNI, idSpecialty) {
     }
     if (name.length > 45) {
         alert('Name must have maximun 45 characters');
+        state = false;
+    }
+    if (!Date.parse(inputDate)) {
+        alert('Bad date field');
+        state = false;
     }
     getMedicalSpecialtyById(idSpecialty).then(medicalSpecialty => {
         medicalSpecialty.patients.forEach(patient => {

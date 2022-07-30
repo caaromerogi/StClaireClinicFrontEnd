@@ -59,19 +59,28 @@ function generatePatientInterface(patients:patientI[]){
         divDate.append(headDate);
        })
 
+       const addDateButton:HTMLButtonElement = document.createElement('button');
+       addDateButton.id = `update-patient-${patient.id}`
+       addDateButton.className='button';
+       addDateButton.innerText  = 'Add new date';
+       addDateButton.onclick = addNewDate;
+
+       function addNewDate(){
+        const id:number = Number(deleteButton.getAttribute('id')?.split('-')[2]);
+       }
+
+
        const deleteButton:HTMLButtonElement = document.createElement('button');
        deleteButton.id = `patient-${patient.id}`
        deleteButton.className='button';
-       deleteButton.innerText  = 'X';
+       deleteButton.innerText  = 'Delete Patient';
        deleteButton.onclick = deletePatient;
 
        function deletePatient(){
         const id:number = Number(deleteButton.getAttribute('id')?.split('-')[1]);
             deletePatientInSpecialty(id).then(response => {
                 if(response.status ===200){
-                    console.log('Hola')
                     const patient = document.querySelector(`#patient-${id}`) as HTMLDivElement
-                    console.log(patient);
                     patient.remove();
                 }
             })    
@@ -80,6 +89,7 @@ function generatePatientInterface(patients:patientI[]){
        divPatient.append(headName, headDNI, headAge, divDate, deleteButton);
        divBodyContainer.append(divPatient);
     })
+    
 
     
     divModalContainerBackPatient.append(divHeaderContainer, divBodyContainer)

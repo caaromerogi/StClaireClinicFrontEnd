@@ -27,7 +27,7 @@ function submitNewPatient(id:number){
     const inputAge = document.querySelector('#new-patient-age') as HTMLInputElement;
     const inputDate = document.querySelector('#new-patient-date') as HTMLInputElement;
 
-    if(validation(inputName.value, inputAge.value, inputDNI.value, id)){
+    if(validation(inputName.value, inputAge.value, inputDNI.value, inputDate.value, id)){
         const newPatient:patientI ={
             id:null,
             name: inputName.value,
@@ -44,7 +44,7 @@ function submitNewPatient(id:number){
     }
 }
 
-function validation(name:string, inputAge:string, inputDNI:string, idSpecialty:number){
+function validation(name:string, inputAge:string, inputDNI:string,inputDate:string, idSpecialty:number){
     let state:boolean = true;
 
     if(isNaN(Number(inputAge))){
@@ -67,6 +67,11 @@ function validation(name:string, inputAge:string, inputDNI:string, idSpecialty:n
     }
     if(name.length>45){
         alert('Name must have maximun 45 characters');
+        state =false;
+    }
+    if(!Date.parse(inputDate)){
+        alert('Bad date field');
+        state = false;
     }
 
     getMedicalSpecialtyById(idSpecialty).then(medicalSpecialty => {

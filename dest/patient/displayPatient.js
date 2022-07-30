@@ -44,19 +44,26 @@ function generatePatientInterface(patients) {
             headDate.innerText = date.date;
             divDate.append(headDate);
         });
+        const addDateButton = document.createElement('button');
+        addDateButton.id = `update-patient-${patient.id}`;
+        addDateButton.className = 'button';
+        addDateButton.innerText = 'Add new date';
+        addDateButton.onclick = addNewDate;
+        function addNewDate() {
+            var _a;
+            const id = Number((_a = deleteButton.getAttribute('id')) === null || _a === void 0 ? void 0 : _a.split('-')[2]);
+        }
         const deleteButton = document.createElement('button');
         deleteButton.id = `patient-${patient.id}`;
         deleteButton.className = 'button';
-        deleteButton.innerText = 'X';
+        deleteButton.innerText = 'Delete Patient';
         deleteButton.onclick = deletePatient;
         function deletePatient() {
             var _a;
             const id = Number((_a = deleteButton.getAttribute('id')) === null || _a === void 0 ? void 0 : _a.split('-')[1]);
             deletePatientInSpecialty(id).then(response => {
                 if (response.status === 200) {
-                    console.log('Hola');
                     const patient = document.querySelector(`#patient-${id}`);
-                    console.log(patient);
                     patient.remove();
                 }
             });
